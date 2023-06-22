@@ -7,13 +7,13 @@
   "scripts": {
     "dev": "vite",
     "cleanDist" : "rm -dfr dist/images",
-    "build": "tsc && vite build && cleanDist",
+    "build": "tsc && vite build && npm run cleanDist",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "npx gh-pages -d dist",
     "index_images": "ts-node ./index_images.ts",
-    "push": "npm run index_images && git push origin main && deploy"
+    "push": "npm run index_images && git push origin main && npm run deploy"
   },
   "dependencies": {
     "@schlomoh/react-cookieconsent": "^1.6.1",

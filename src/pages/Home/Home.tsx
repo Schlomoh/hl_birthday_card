@@ -15,7 +15,9 @@ import { IoIosCloseCircle } from "react-icons/io";
 import { LazyImage, useFetchImage } from "@/components/LazyImage";
 import { Paragraph } from "@/components";
 
-const createFileUrl = (slug: string) => new URL(slug, import.meta.url).href;
+const isDev = import.meta.env.DEV;
+const createFileUrl = (slug: string) =>
+  new URL(slug, isDev ? import.meta.url : "/hl_birthday_card/").href;
 const fetchImageList = async () => {
   const imageListResp = await fetch(createFileUrl("/metadata.json"));
   return (await imageListResp.json()).files as string[];
@@ -80,7 +82,7 @@ const ImageModal = forwardRef(
             <div className="swiper-zoom-container">
               {imageUrl ? (
                 <img
-                  src={createFileUrl(imageUrl)}
+                  src={imageUrl}
                   loading="lazy"
                   alt={"carousel_img_" + imageUrl}
                 />
@@ -124,7 +126,7 @@ const Home = () => {
     <main style={{ position: "relative", zIndex: 2, height: "100%" }}>
       <ImageModal
         ref={modalRef}
-        imageUrl={imageSrc}
+        imageUrl={createFileUrl(imageSrc)}
         toggleModal={toggleModal}
       />
       <ResponsiveMasonry>

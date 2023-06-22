@@ -33,14 +33,12 @@ const Login = () => {
 
   useEffect(() => {
     const password = import.meta.env.VITE_ENCRYPTION_PASSWORD;
-    console.log(password);
     if (input === password) setIsAuthenticated(true);
-    console.log(isAuthenticated);
   }, [input]);
 
   return (
     <LoginContainer>
-      <Paragraph color='grey'>Enter the password</Paragraph>
+      <Paragraph color="grey">Enter the password</Paragraph>
       <input type="password" onChange={handleChange} value={input} />
     </LoginContainer>
   );
@@ -48,10 +46,6 @@ const Login = () => {
 
 const PrivacyWrapper = ({ children }: { children: ReactNode }) => {
   const { isAuthenticated } = useContext(AuthenticationContext);
-  useEffect(() => {
-    console.log(isAuthenticated);
-  }, [isAuthenticated]);
-
   return isAuthenticated ? children : <Login />;
 };
 
