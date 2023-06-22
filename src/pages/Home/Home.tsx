@@ -16,8 +16,10 @@ import { LazyImage, useFetchImage } from "@/components/LazyImage";
 import { Paragraph } from "@/components";
 
 const isDev = import.meta.env.DEV;
-const createFileUrl = (slug: string) =>
-  new URL(slug, isDev ? import.meta.url : "/hl_birthday_card/").href;
+const slug = "hl_birthday_card";
+const createFileUrl = (src: string) =>
+  new URL(src, isDev ? import.meta.url : import.meta.url.split(slug)[0] + slug)
+    .href;
 const fetchImageList = async () => {
   const imageListResp = await fetch(createFileUrl("/metadata.json"));
   return (await imageListResp.json()).files as string[];
@@ -68,7 +70,6 @@ const StyledDialog = styled.dialog`
 const ImageModal = forwardRef(
   (props: ImageModalProps, ref: ForwardedRef<HTMLDialogElement>) => {
     const { toggleModal, imageUrl } = props;
-
     return (
       <StyledDialog ref={ref}>
         <Swiper modules={[Zoom]} zoom={true}>
@@ -103,6 +104,7 @@ const ImageModal = forwardRef(
 );
 
 const Home = () => {
+  console.log(import.meta.url.split(slug)[0] + slug);
   const { loading, value: imageUrls } = useAsync(fetchImageList, []);
   const [selectedImage, setSelectedImage] = useState(0);
   const modalRef = useRef<HTMLDialogElement | null>(null);

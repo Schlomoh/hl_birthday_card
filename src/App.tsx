@@ -8,7 +8,6 @@ import { Home } from "./pages";
 import { ChangeEvent, ReactNode, useContext, useEffect, useState } from "react";
 import AuthenticationContextProvider, {
   AuthenticationContext,
-  useAuthentication,
 } from "./AuthContext";
 import styled from "styled-components";
 
@@ -23,9 +22,7 @@ const LoginContainer = styled.div`
 
 const Login = () => {
   const [input, setInput] = useState("");
-  const { setIsAuthenticated, isAuthenticated } = useContext(
-    AuthenticationContext
-  );
+  const { setIsAuthenticated } = useContext(AuthenticationContext);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
