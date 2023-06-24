@@ -3,10 +3,9 @@
   "private": true,
   "version": "0.0.1",
   "type": "commonjs",
-  "homepage": "./",
   "scripts": {
     "dev": "vite",
-    "cleanDist" : "rm -dfr dist/images",
+    "cleanDist": "rm -dfr dist/images",
     "build": "tsc && vite build && npm run cleanDist",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",

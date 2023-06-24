@@ -1,5 +1,5 @@
-import cryptoJs from "crypto-js";
 import { useEffect, useState } from "react";
+import cryptoJs from "crypto-js";
 
 const decryptImage = async (encryptedData: string) => {
   const password = import.meta.env.VITE_ENCRYPTION_PASSWORD!;

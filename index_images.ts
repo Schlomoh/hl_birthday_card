@@ -83,7 +83,7 @@ const main = async () => {
   const files = fs
     .readdirSync(outputFolderPath)
     .filter((url: string) => !url.match(/(w=)\d+/g))
-    .map((url: any) => path.join("/optimized", url));
+    .map((url: any) => path.join("optimized", url));
   const data = JSON.stringify({ files });
   fs.writeFileSync(path.join("public", "metadata.json"), data);
 };

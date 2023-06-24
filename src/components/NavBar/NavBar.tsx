@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { IconContext } from "react-icons";
 import { BiPhotoAlbum } from "react-icons/bi";
 import styled, { useTheme } from "styled-components";
+import { Paragraph } from "../Typography";
 
 const StyledNav = styled.nav`
   // position
@@ -65,6 +66,9 @@ const NavBar = () => {
           </IconContext.Provider>
           <div style={{ flexGrow: 1 }} />
           <Links />
+          <Paragraph>
+            <strong>Flashback</strong>
+          </Paragraph>
         </NavContentContainer>
       </StyledNav>
       <ScrollCheck />
