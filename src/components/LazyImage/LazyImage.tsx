@@ -24,7 +24,7 @@ const createSrc = (src: string, width: number) => {
 
 const LazyImage = ({ src, ...props }: LazyImageProps) => {
   const ref = useRef<null | HTMLDivElement>(null);
-  const observer = useIntersection(ref, { rootMargin: " 150px 0px " });
+  const observer = useIntersection(ref, { rootMargin: "150px 0px" });
   const [hasIntersected, setHasIntersected] = useState(false);
 
   const imageSrc = useFetchImage(
