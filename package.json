@@ -47,6 +47,6 @@
     "styled-components": "^5.3.10",
     "ts-node": "^10.4.0",
     "typescript": "^5.0.2",
-    "vite": "^4.5.2"
+    "vite": "^4.5.3"
   }
 }
